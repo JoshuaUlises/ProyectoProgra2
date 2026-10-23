@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package proyectoprogra2;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,7 +18,22 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setTitle("Login");
+        getRootPane().setDefaultButton(ingresar);
+        
+        
+        }
+     private String validar(String user, String clave) {
+    if (user.equals("admin") && clave.equals("admin123")) {
+        return "ADMIN";
     }
+    if (user.equals("operador") && clave.equals("op123")) {
+        return "OPERATIVO";
+    }
+    return null;
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,21 +44,145 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        txtusuario = new javax.swing.JTextField();
+        titulo = new javax.swing.JLabel();
+        usuariolbl = new javax.swing.JLabel();
+        contrasenia = new javax.swing.JLabel();
+        contra = new javax.swing.JPasswordField();
+        ingresar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        txtusuario.addActionListener(this::txtusuarioActionPerformed);
+
+        titulo.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        titulo.setForeground(new java.awt.Color(51, 51, 255));
+        titulo.setText("INICIAR SESION");
+
+        usuariolbl.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        usuariolbl.setText("Ingrese su Usuario");
+
+        contrasenia.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        contrasenia.setText("Ingrese su contraseña");
+
+        contra.addActionListener(this::contraActionPerformed);
+
+        ingresar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        ingresar.setForeground(new java.awt.Color(51, 255, 51));
+        ingresar.setText("INGRESAR");
+        ingresar.addActionListener(this::ingresarActionPerformed);
+
+        jButton2.setText("Salir");
+        jButton2.addActionListener(this::jButton2ActionPerformed);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(42, 42, 42))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(117, 117, 117)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(usuariolbl)
+                    .addComponent(txtusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(contrasenia)
+                    .addComponent(contra, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(233, 233, 233))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(305, 305, 305)
+                        .addComponent(ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(230, 230, 230)
+                        .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(usuariolbl)
+                    .addComponent(contrasenia))
+                .addGap(39, 39, 39)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(contra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addComponent(ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(179, 179, 179)
+                .addComponent(jButton2)
+                .addGap(26, 26, 26))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 863, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 608, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarActionPerformed
+        // TODO add your handling code here:
+        String usuario = txtusuario.getText().trim();
+        String clave = new String(contra.getPassword());
+        
+        if(usuario.isEmpty() || clave.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Complete todos los espacios", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        String rol = validar(usuario,clave);
+        
+        if( rol == null){
+            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
+            contra.setText("");
+            return;
+        }
+        
+        JOptionPane.showMessageDialog(this,"Bienvenido, " + usuario + " (" +  rol + ")");
+        
+           // Login correcto: abrir el menú y cerrar el login
+    MenuPrincipal menu = new MenuPrincipal(rol);
+    menu.setVisible(true);
+    this.dispose();
+        
+    }//GEN-LAST:event_ingresarActionPerformed
+
+    private void contraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contraActionPerformed
+
+    private void txtusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtusuarioActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -70,5 +210,13 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField contra;
+    private javax.swing.JLabel contrasenia;
+    private javax.swing.JButton ingresar;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel titulo;
+    private javax.swing.JTextField txtusuario;
+    private javax.swing.JLabel usuariolbl;
     // End of variables declaration//GEN-END:variables
 }
