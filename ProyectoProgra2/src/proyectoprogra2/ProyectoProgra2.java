@@ -15,6 +15,12 @@ public class ProyectoProgra2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        System.out.println("HOLA FARID");
+        System.out.println("HOLA STEVEN");
+        System.out.println("HOLA ULISES");
+        System.out.println("HOLA DANIEL");
+        System.out.println("HOLA DAVID");
+        System.out.println("HOLA EBONY");
     }
     
 }
