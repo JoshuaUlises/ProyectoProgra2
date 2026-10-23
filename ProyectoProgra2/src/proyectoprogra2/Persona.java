@@ -10,4 +10,5 @@ package proyectoprogra2;
  */
 public class Persona {
     String nombre;
+    String apellido;
 }
